@@ -1,0 +1,26 @@
+<div class="widget form-group">
+
+    <ng-container *ngIf="schema.type!='array'">
+      <clr-select-container>
+        <label>{{schema.title}}</label>
+        <select clrSelect [value]="control.value" [formControl]="control">
+          <option *ngFor="let item of schema.oneOf" [value]="item.enum[0]">
+            {{item.description}}
+          </option>
+        </select>
+        <clr-control-error>This field is required</clr-control-error>
+      </clr-select-container>
+    </ng-container>
+
+    <ng-container *ngIf="schema.type==='array'">
+      <clr-select-container>
+        <label>{{schema.title}}</label>
+        <select clrSelect [formControl]="control" [attr.name]="name" [attr.disabled]="schema.readOnly"
+                [value]="control.value" multiple>
+          <option *ngFor="let item of schema.items.oneOf" [value]="item.enum[0]">{{item.description}}</option>
+        </select>
+        <clr-control-error>This field is required</clr-control-error>
+      </clr-select-container>
+    </ng-container>
+</div>
+

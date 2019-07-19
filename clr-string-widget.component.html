@@ -1,0 +1,11 @@
+<script src="clr-select-widget.component.ts"></script>
+<clr-input-container>
+  <label>{{schema.title}}</label>
+  <input clrInput placeholder="{{schema.title}}" [formControl]="control">
+  <clr-control-helper>{{schema.description}}</clr-control-helper>
+  <clr-control-error>
+    <ng-container *ngFor="let e of (formProperty.errorsChanges | async)">
+      {{e.message}}
+    </ng-container>
+  </clr-control-error>
+</clr-input-container>
