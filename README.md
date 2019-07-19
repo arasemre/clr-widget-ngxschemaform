@@ -1,3 +1,4 @@
+# Clarity Forms for ngx-schema-form
 In your module, you need to:
 
 - declare your widget component (like any regular component),
